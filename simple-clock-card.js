@@ -3,8 +3,11 @@ class SimpleClockCard extends Polymer.Element {
   setConfig(config) {
     const cardConfig = Object.assign({}, config);
 
-    if (cardConfig.use_military === null) cardConfig.use_military = true;
-    if (cardConfig.hide_seconds === null) cardConfig.hide_seconds = false;
+    if (!cardConfig.use_military) cardConfig.use_military = true;
+    if (!cardConfig.hide_seconds) cardConfig.hide_seconds = false;
+    if (!cardConfig.fontSize)     cardConfig.fontSize     = '4rem';
+    if (!cardConfig.padding)      cardConfig.padding      = '16px';
+    if (!cardConfig.textAlign)    cardConfig.textAlign    = 'center';
 
     this._config = cardConfig;
   }
@@ -39,17 +42,17 @@ class SimpleClockCard extends Polymer.Element {
                     (config.use_military ? " " + p : " ");
 
     this.content.innerHTML = time_str;
-
   }
 
   set hass(hass) {
+	const config = this._config;
 
     if (!this.content) {
-      const card = document.createElement('HA-card');
+      const card = document.createElement('ha-card');
       this.content = document.createElement('div');
-      this.content.style.padding = '16px';
-      this.content.style.fontSize = '4rem';
-      this.style.textAlign = 'center';
+      this.content.style.padding = config.padding;
+      this.content.style.fontSize = config.fontSize;
+      this.style.textAlign = config.textAlign;
       this.content.style.display = 'inline-block';
       
       card.appendChild(this.content);

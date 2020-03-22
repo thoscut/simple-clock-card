@@ -26,8 +26,11 @@ thats it!
 ## Options
 |option| default|description| 
 |--|--|--|
-|  use_millitary| true| When false shows a 24h format clock instead of a 12h format clock with AM/ PM|
-|  hide_seconds| false| When true hides the seconds
+| use_millitary | true   | When false shows a 24h format clock instead of a 12h format clock with AM/ PM|
+| hide_seconds  | false  | When true hides the seconds
+| fontSize      | 4rem   | Fontsize for clock
+| padding       | 16px   | 
+| textAlign     | center | Clock text alignment
 
 ## Example
 - show a 24h clock without seconds:
