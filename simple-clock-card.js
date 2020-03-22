@@ -1,4 +1,4 @@
-class SimpleClockCard extends HTMLElement {
+class SimpleClockCard extends Polymer.Element {
 
   setConfig(config) {
     const cardConfig = Object.assign({}, config);
