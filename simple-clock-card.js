@@ -3,11 +3,11 @@ class SimpleClockCard extends Polymer.Element {
   setConfig(config) {
     const cardConfig = Object.assign({}, config);
 
-    if (!cardConfig.use_military) cardConfig.use_military = true;
-    if (!cardConfig.hide_seconds) cardConfig.hide_seconds = false;
-    if (!cardConfig.fontSize)     cardConfig.fontSize     = '4rem';
-    if (!cardConfig.padding)      cardConfig.padding      = '16px';
-    if (!cardConfig.textAlign)    cardConfig.textAlign    = 'center';
+    if (cardConfig.use_military === null) cardConfig.use_military = true;
+    if (cardConfig.hide_seconds === null) cardConfig.hide_seconds = false;
+    if (!cardConfig.fontSize)             cardConfig.fontSize     = '4rem';
+    if (!cardConfig.padding)              cardConfig.padding      = '16px';
+    if (!cardConfig.textAlign)            cardConfig.textAlign    = 'center';
 
     this._config = cardConfig;
   }
