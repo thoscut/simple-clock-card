@@ -5,14 +5,18 @@ A text based clock for Homeassistants' Lovelace ui
 
 ![military without seconds](https://i.imgur.com/ej4AFO3.png)
 
-## Usage
-- Download the files in this folder to your 'www' folder in the hass config directory.
-- In your *lovelace-ui.yaml* or in the raw config editor add the following to resources:
+## Installation
 
-		resources:
-		  - type: js
-	        url: /local/<your_folder>/simple-clock-card.js
-- In your *lovelace-ui.yaml* add the following lines to a view in '*cards:*' or add this via the ui as a *'manual card'*:
+1. Copy `simple-clock-card.js` to `<config directory>/www/simple-clock-card.js`
+2. Add this to your Lovelace
+   `resources:`
+
+```yaml
+  - url: /local/simple-clock-card.js
+    type: js
+```
+
+3. In your *lovelace-ui.yaml* add the following lines to a view in '*cards:*' or add this via the ui as a *'manual card'*:
 
 		- type: 'custom:simple-clock-card'
 
