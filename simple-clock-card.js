@@ -1,11 +1,16 @@
 class SimpleClockCard extends HTMLElement {
 
   setConfig(config) {
-    this.config = config;
-    if (this.config.use_military == null) this.config.use_military = true;
-    if (this.config.hide_seconds == null) this.config.hide_seconds = false;
-  }
+    const cardConfig = Object.assign({}, config);
 
+    if (cardConfig.use_military == null) cardConfig.use_military = true;
+    if (cardConfig.hide_seconds == null) cardConfig.hide_seconds = false;
+
+    const element = document.createElement(`hui-${cardConfig.card.type}-card`);
+    this.appendChild(element);
+    this._config = JSON.parse(JSON.stringify(cardConfig));
+  }
+  
   getCardSize() {
     return 1;
   }
@@ -18,6 +23,8 @@ class SimpleClockCard extends HTMLElement {
   }
 
   startTime() {
+	const config = this._config;
+
     var today = new Date(),
         h = today.getHours(),
         m = today.getMinutes(),
@@ -27,11 +34,11 @@ class SimpleClockCard extends HTMLElement {
     m = this.addZero(m);
     s = this.addZero(s);
 
-    let time_str =  (this.config.use_military ? h % 12 : h ) +
+    let time_str =  (config.use_military ? h % 12 : h ) +
                     ":" +
                     m +
-                    (this.config.hide_seconds ? "" : ":" + s ) +
-                    (this.config.use_military ? " " + p : " ");
+                    (config.hide_seconds ? "" : ":" + s ) +
+                    (config.use_military ? " " + p : " ");
 
     this.content.innerHTML = time_str;
 
