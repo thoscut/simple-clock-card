@@ -52,6 +52,7 @@ class SimpleClockCard extends Polymer.Element {
       this.content = document.createElement('div');
       this.content.style.padding = config.padding;
       this.content.style.fontSize = config.fontSize;
+      this.content.style.font-weight = 'bold';
       this.style.textAlign = config.textAlign;
       this.content.style.display = 'inline-block';
       
