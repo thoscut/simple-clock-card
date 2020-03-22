@@ -3,12 +3,10 @@ class SimpleClockCard extends Polymer.Element {
   setConfig(config) {
     const cardConfig = Object.assign({}, config);
 
-    if (cardConfig.use_military == null) cardConfig.use_military = true;
-    if (cardConfig.hide_seconds == null) cardConfig.hide_seconds = false;
+    if (cardConfig.use_military === null) cardConfig.use_military = true;
+    if (cardConfig.hide_seconds === null) cardConfig.hide_seconds = false;
 
-    const element = document.createElement(`hui-${cardConfig.card.type}-card`);
-    this.appendChild(element);
-    this._config = JSON.parse(JSON.stringify(cardConfig));
+    this._config = cardConfig;
   }
   
   getCardSize() {
@@ -53,6 +51,7 @@ class SimpleClockCard extends Polymer.Element {
       this.content.style.fontSize = '4rem';
       this.style.textAlign = 'center';
       this.content.style.display = 'inline-block';
+      
       card.appendChild(this.content);
       this.appendChild(card);
     }
