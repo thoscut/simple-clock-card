@@ -59,7 +59,11 @@ class SimpleClockCard extends Polymer.Element {
       this.appendChild(card);
     }
     this.startTime();
-    setInterval(this.startTime.bind(this), 250);
+	
+    var interval = 250
+    if (config.hide_seconds) 
+	    interval = 1000      
+    setInterval(this.startTime.bind(this), interval);
   }
 
 }
