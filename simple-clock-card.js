@@ -5,8 +5,8 @@ class SimpleClockCard extends Polymer.Element {
 
     if (cardConfig.use_military === null) cardConfig.use_military = true;
     if (cardConfig.hide_seconds === null) cardConfig.hide_seconds = false;
-    if (!cardConfig.fontSize)             cardConfig.fontSize     = '4rem';
-    if (!cardConfig.padding)              cardConfig.padding      = '10px';
+    if (!cardConfig.fontSize)             cardConfig.fontSize     = '7rem';
+    if (!cardConfig.padding)              cardConfig.padding      = '44px';
     if (!cardConfig.textAlign)            cardConfig.textAlign    = 'center';
 
     this._config = cardConfig;
@@ -53,7 +53,7 @@ class SimpleClockCard extends Polymer.Element {
       this.content.style.padding = config.padding;
       this.content.style.fontSize = config.fontSize;
       this.style.textAlign = config.textAlign;
-      this.content.style.display = 'ruby-base-container';
+      this.content.style.display = 'block';
       
       card.appendChild(this.content);
       this.appendChild(card);
